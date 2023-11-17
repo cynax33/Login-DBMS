@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="logindb" Class="userdbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-IFRPMGB\SQLEXPRESS01;Initial Catalog=logindb;Integrated Security=True" SettingsObjectName="Login.Properties.Settings" SettingsPropertyName="logindbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.loginuser" Member="loginusers">
+    <Type Name="loginuser">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Fname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Mname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Lname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Addrss" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Passwords" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Usertype" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.sp_type" Method="sp_type">
+    <Parameter Name="user" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="pass" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_getName" Method="sp_getName">
+    <Parameter Name="fname" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_getNameResult">
+      <Column Name="Fname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_login" Method="sp_login">
+    <Parameter Name="user" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="pass" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_loginResult">
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Passwords" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Usertype" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_register" Method="sp_register">
+    <Parameter Name="Fname" Parameter="fname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Mname" Parameter="mname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Lname" Parameter="lname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Addrss" Parameter="addrss" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Passwords" Parameter="passwords" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_faceLogin" Method="sp_faceLogin">
+    <Parameter Name="key" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_faceLoginResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Fname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Mname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Lname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Addrss" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Passwords" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Usertype" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_typeFaceID" Method="sp_typeFaceID">
+    <Parameter Name="email" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
